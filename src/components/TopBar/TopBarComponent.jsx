@@ -11,10 +11,10 @@ export default function TopBarComponent({ options, updateIndex }) {
         from: { opacity: 0, transform: "translateX(-90px)" }
     });
 
-    React.useEffect(() => {
-        console.log("render");
-        console.log(options);
-    }, [options]);
+    // React.useEffect(() => {
+    //     console.log("render");
+    //     console.log(options);
+    // }, [options]);
 
     return (
         <animated.div style={animProps} className="topBar">
@@ -27,7 +27,7 @@ export default function TopBarComponent({ options, updateIndex }) {
                     <span className="custom-dropdown">
                         <select
                             onChange={e => {
-                                updateIndex(e.target.value);
+                                updateIndex(+e.target.value);
                             }}
                         >
                             {options.map((e, i) => (
