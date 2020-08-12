@@ -1,0 +1,113 @@
+.ico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ico:not(:last-child) {
+    margin-bottom: 27%;
+}
+
+.ico * {
+    transition: all 200ms ease;
+}
+
+.imageIco {
+    width: 60%;
+}
+
+.imageIco img {
+    width: 100%;
+    filter: grayscale(1);
+}
+
+.title {
+    font-size: 20px;
+    color: #949494;
+    margin: 0;
+}
+
+.ico:hover .title {
+    color: whitesmoke !important;
+}
+
+.ico:hover .imageIco img {
+    filter: grayscale(0);
+}
+
+.hovInfo {
+    width: 90%;
+    padding: 7px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hovInfo p {
+    line-height: 30px;
+    font-size: 20px;
+    text-align: justify;
+    margin: 2px 0;
+}
+
+.hovInfo hr {
+    width: 0%;
+    border: 0.1px solid #7c6e65;
+    border-radius: 10px;
+    animation: expandOut 500ms 600ms ease-in-out forwards;
+}
+
+@keyframes expandOut {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.optTitle {
+    margin: 0;
+    letter-spacing: 5px;
+    font-weight: 200;
+}
+
+.go {
+    display: flex;
+    margin-top: auto;
+}
+
+.go img {
+    width: 15%;
+    margin-left: auto;
+    filter: grayscale(1);
+    cursor: pointer;
+    transition: all 300ms ease-out;
+}
+
+.go img:hover {
+    filter: grayscale(0);
+}
+
+@media screen and (max-width: 1400px) {
+    .imageIco {
+        width: 40%;
+    }
+    .ico:not(:last-child) {
+        margin-bottom: 20%;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .optTitle {
+        font-size: 20px;
+    }
+
+    .hovInfo p {
+        line-height: 25px;
+        font-size: 15px;
+        margin: 0;
+    }
+}

@@ -1,0 +1,47 @@
+.topBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.topBar img {
+    width: 50px;
+    filter: grayscale(1);
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.topBar a:active img {
+    transform: scale(0.99);
+}
+
+.topBar img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.chapterSelection {
+    text-align: center;
+    margin-left: auto;
+    text-transform: uppercase;
+}
+
+.chapterSelection h1 {
+    font-weight: 300;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+
+@media screen and (max-width: 1400px) {
+    .topBar {
+        margin-bottom: 2%;
+    }
+
+    .chapterSelection h1 {
+        font-size: 20px;
+    }
+
+    .topBar img {
+        width: 30px;
+    }
+}

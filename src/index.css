@@ -1,13 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    font-family: "Nunito", sans-serif;
+    /* font-family: "Noto Sans", sans-serif; */
+    /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, */
+    /*     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    padding: 0;
+    margin: 0;
+    color: #cfcece;
+    /* background-color: #2f1531; */
+    background-image: url("./assets/scouts.png");
+    /* background-color: #334752; */
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    background-position: 0 0;
+    background-size: 100vw 100vh;
 }
