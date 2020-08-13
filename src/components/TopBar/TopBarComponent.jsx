@@ -32,7 +32,7 @@ export default function TopBarComponent({ options, updateIndex }) {
                         >
                             {options.map((e, i) => (
                                 <option key={e.key} value={i}>
-                                    {e.key.split("-").join(" ")}
+                                    {e.title + " " + e.m_no}
                                 </option>
                             ))}
                         </select>

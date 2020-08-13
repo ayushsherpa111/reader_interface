@@ -4,7 +4,8 @@ import "./Chapter.css";
 import Carousel from "react-spring-3d-carousel";
 import { animated, useSpring } from "react-spring";
 
-export function ChapterComponent() {
+export function ChapterComponent({ history }) {
+    console.log(history);
     const [images, setImages] = React.useState([]);
     const [index, setIndex] = React.useState(0);
     const props = useSpring({
@@ -17,29 +18,51 @@ export function ChapterComponent() {
         fetch("http://localhost:5000/chapters")
             .then(response => response.json())
             .then(images => {
-                return images.result.map((image, i) => ({
-                    key: image.chapter_title,
-                    content: (
-                        <div className="page">
-                            <img
-                                src={`http://localhost:8000/${image.chapter_title}/${image.chapter_cover}`}
-                                alt={"Manga Cover Number" + image.chapter_id}
-                            />
-                            <div className="mangaTitle">
-                                <p>
-                                    {image.chapter_title.split("-").join(" ")}
-                                </p>
-                                <div className="read">
-                                    <img alt="read" src="assets/openBook.png" />
+                return images.result.map((image, i) => {
+                    const chapter_t = image.chapter_title.split("-");
+                    const title = chapter_t.slice(0, 4).join(" ");
+                    const m_no =
+                        chapter_t.length === 6
+                            ? chapter_t[4] + "-" + chapter_t[5]
+                            : chapter_t[4];
+                    return {
+                        m_no,
+                        title,
+                        key: image.chapter_title,
+                        content: (
+                            <div className="page">
+                                <img
+                                    src={`http://localhost:8000/${image.chapter_title}/${image.chapter_cover}`}
+                                    alt={
+                                        "Manga Cover Number" + image.chapter_id
+                                    }
+                                />
+                                <div className="mangaTitle">
+                                    <p>{title + " " + m_no}</p>
+                                    <div
+                                        className="read"
+                                        onClick={() => {
+                                            history.push(
+                                                `${title
+                                                    .split(" ")
+                                                    .join("-")}/${m_no}`
+                                            );
+                                        }}
+                                    >
+                                        <img
+                                            alt="read"
+                                            src="assets/openBook.png"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ),
-                    onClick: () => setIndex(i)
-                }));
+                        ),
+                        onClick: () => setIndex(i)
+                    };
+                });
             })
             .then(setImages);
-    }, []);
+    }, [history]);
 
     return (
         <div className="chapters">

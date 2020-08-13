@@ -1,0 +1,91 @@
+.side {
+    display: flex;
+    position: absolute;
+    width: 27%;
+}
+
+.sideBar {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+
+.selection {
+    display: flex;
+    padding: 25px 15px;
+    justify-content: center;
+}
+
+.sideBar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #35221b;
+}
+
+.sideBar::-webkit-scrollbar {
+    width: 12px;
+    background-color: #ffffff00;
+}
+
+.sideBar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #3b1d05;
+}
+
+.selection h1 {
+    margin: 0;
+    font-size: 33px;
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+}
+
+.toggleBtn {
+    margin-top: 25px;
+    display: flex;
+    margin-right: 20px;
+    width: 10%;
+    height: 6%;
+    padding: 10px;
+}
+
+.toggleBtn img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.thumbs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.thumbs ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    text-align: center;
+}
+
+.thumbs img {
+    width: 70%;
+    margin-bottom: 7%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.curr {
+    border: 3px solid orange;
+}
+
+@media screen and (max-width: 1400px) {
+    .side {
+        width: 40%;
+    }
+
+    .toggleBtn {
+        width: 7%;
+    }
+}
