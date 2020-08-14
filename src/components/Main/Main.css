@@ -1,0 +1,14 @@
+.mainBody {
+    padding: 2%;
+    margin: auto;
+}
+
+.mangaImage {
+    width: 100%;
+    text-align: center;
+}
+
+.mangaImage img {
+    border: none !important;
+    width: 85%;
+}

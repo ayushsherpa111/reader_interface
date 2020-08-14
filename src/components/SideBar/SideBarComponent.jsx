@@ -2,7 +2,13 @@ import React from "react";
 import "./SideBar.css";
 import { animated, useSpring } from "react-spring";
 
-export default function SideBarComponent({ pages, current, setCurrent }) {
+export default function SideBarComponent({
+    history,
+    pages,
+    current,
+    setCurrent
+}) {
+    console.log(history);
     const [toggle, setToggle] = React.useState(true);
     const [fade, setFade] = useSpring(() => ({
         opacity: 1,
@@ -22,29 +28,51 @@ export default function SideBarComponent({ pages, current, setCurrent }) {
                     <h1>Thumbnails</h1>
                 </div>
                 {pages.length > 0 ? (
-                    <div className="thumbs">
-                        <ul>{pages}</ul>
-                    </div>
+                    <div className="thumbs">{pages}</div>
                 ) : null}
             </animated.div>
-            <animated.div
-                style={fade}
-                className="toggleBtn"
-                onClick={() => {
-                    setExtend({
-                        width: toggle ? "65%" : "0%",
-                        opacity: toggle ? 1 : 0
-                    });
-                    setFade({
-                        transform: toggle
-                            ? "rotateZ(-270deg)"
-                            : "rotateZ(-90deg)"
-                    });
-                    setToggle(!toggle);
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "35%"
                 }}
             >
-                <img src="/assets/expand.png" alt="" />
-            </animated.div>
+                <animated.div
+                    style={fade}
+                    className="toggleBtn"
+                    onClick={() => {
+                        setExtend({
+                            width: toggle ? "65%" : "0%",
+                            opacity: toggle ? 1 : 0
+                        });
+                        setFade({
+                            transform: toggle
+                                ? "rotateZ(-270deg)"
+                                : "rotateZ(-90deg)"
+                        });
+                        setToggle(!toggle);
+                    }}
+                >
+                    <img src="/assets/expand.png" alt="" />
+                </animated.div>
+                <div
+                    className="toggleBtn"
+                    onClick={() => {
+                        history.push("/");
+                    }}
+                >
+                    <img src="/assets/home.png" alt="" />
+                </div>
+                <div
+                    className="toggleBtn"
+                    onClick={() => {
+                        history.push("/chapters");
+                    }}
+                >
+                    <img src="/assets/index.png" alt="" />
+                </div>
+            </div>
         </div>
     );
 }

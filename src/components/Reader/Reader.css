@@ -1,3 +1,4 @@
 .readerBody {
+    box-shadow: inset 190px 34px 700px black;
     display: flex;
 }

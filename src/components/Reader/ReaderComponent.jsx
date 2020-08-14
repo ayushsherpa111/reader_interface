@@ -3,8 +3,7 @@ import "./Reader.css";
 import SideBarComponent from "../SideBar/SideBarComponent";
 import MainComponent from "../Main/MainComponent";
 
-export default function ReaderComponent({ match }) {
-    console.log(match);
+export default function ReaderComponent({ history, match }) {
     const [pages, setPages] = React.useState([]);
     const [current, setCurrent] = React.useState(0);
 
@@ -18,31 +17,33 @@ export default function ReaderComponent({ match }) {
             .then(
                 ({ result }) => {
                     return result.map((e, i) => (
-                        <li key={e}>
-                            <img
-                                src={`http://localhost:8000//${match.params
-                                    .manga +
-                                    "-" +
-                                    match.params.chapter}/${e}`}
-                                className={i === current ? "curr" : ""}
-                                alt="thumbs"
-                            />
-                        </li>
+                        <img
+                            key={e}
+                            src={`http://localhost:8000//${match.params.manga +
+                                "-" +
+                                match.params.chapter}/${e}`}
+                            className={i === current ? "curr" : ""}
+                            alt="thumbs"
+                            onClick={() => {
+                                setCurrent(i);
+                            }}
+                        />
                     ));
                 },
                 () => console.log("err")
             )
             .then(setPages);
-    }, [match.params.chapter, match.params.manga]);
+    }, [match.params.chapter, match.params.manga, current]);
 
     return (
         <div className="readerBody">
             <SideBarComponent
                 pages={pages}
+                history={history}
                 current={current}
                 setCurrent={setCurrent}
             />
-            <MainComponent current={current} />
+            <MainComponent current={current} chapter={pages[current]} />
         </div>
     );
 }
