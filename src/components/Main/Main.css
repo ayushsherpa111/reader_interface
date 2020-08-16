@@ -1,5 +1,6 @@
 .mainBody {
     padding: 2%;
+    display: flex;
     margin: auto;
 }
 
@@ -11,4 +12,43 @@
 .mangaImage img {
     border: none !important;
     width: 85%;
+}
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    padding: 5px;
+    align-items: center;
+    margin-top: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 120ms ease;
+}
+
+.btn img {
+    filter: invert(1);
+    width: 35px;
+    margin-bottom: 6px;
+    transition: all 120ms ease;
+}
+
+.prev {
+    transform: rotateZ(90deg);
+}
+
+.next {
+    transform: rotateZ(-90deg);
+}
+
+.btn:hover .prev {
+    transform: rotateZ(90deg) translate(0, 70%);
+}
+
+.btn:hover .next {
+    transform: rotateZ(-90deg) translate(0, 70%);
 }

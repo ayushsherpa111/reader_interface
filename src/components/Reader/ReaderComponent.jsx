@@ -6,7 +6,7 @@ import MainComponent from "../Main/MainComponent";
 export default function ReaderComponent({ history, match }) {
     const [pages, setPages] = React.useState([]);
     const [current, setCurrent] = React.useState(0);
-
+    const [toggle, setToggle] = React.useState(() => false);
     React.useEffect(() => {
         console.log("Readding");
         fetch(`http://localhost:5000/chapters/${match.params.chapter}`)
@@ -42,8 +42,17 @@ export default function ReaderComponent({ history, match }) {
                 history={history}
                 current={current}
                 setCurrent={setCurrent}
+                toggle={toggle}
+                setToggle={setToggle}
             />
-            <MainComponent current={current} chapter={pages[current]} />
+            <MainComponent
+                current={current}
+                toggle={toggle}
+                setToggle={setToggle}
+                chapter={pages[current]}
+                setCurrent={setCurrent}
+                len={pages.length}
+            />
         </div>
     );
 }

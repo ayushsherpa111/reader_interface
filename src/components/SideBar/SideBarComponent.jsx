@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SideBar.css";
 import { animated, useSpring } from "react-spring";
 
@@ -6,10 +6,12 @@ export default function SideBarComponent({
     history,
     pages,
     current,
-    setCurrent
+    setCurrent,
+    toggle,
+    setToggle
 }) {
-    console.log(history);
-    const [toggle, setToggle] = React.useState(true);
+    console.log(toggle);
+    // const [toggle, setToggle] = React.useState(true);
     const [fade, setFade] = useSpring(() => ({
         opacity: 1,
         transform: "rotateZ(-90deg)",
@@ -20,6 +22,17 @@ export default function SideBarComponent({
         width: "0%",
         opacity: 0
     }));
+
+    useEffect(() => {
+        console.log("toggled", toggle);
+        setExtend({
+            width: toggle ? "65%" : "0%",
+            opacity: toggle ? 1 : 0
+        });
+        setFade({
+            transform: toggle ? "rotateZ(-270deg)" : "rotateZ(-90deg)"
+        });
+    }, [toggle, setExtend, setFade]);
 
     return (
         <div className="side">
