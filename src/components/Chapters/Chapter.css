@@ -1,7 +1,7 @@
 .chapters {
     display: flex;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 11px 20px;
 }
 
 .carousel {
@@ -132,7 +132,7 @@
     top: 0;
     height: 48px;
     bottom: 0;
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 11px 10px 0;
     background-color: rgb(0 0 0 / 20%);
 }
 
@@ -156,5 +156,22 @@
 
     .read img {
         width: 50%;
+    }
+
+    .custom-dropdown select {
+        font-size: 15px;
+    }
+
+    .custom-dropdown::before {
+        top: 17%;
+        height: 86%;
+    }
+
+    .custom-dropdown::after {
+        top: 56%;
+    }
+
+    .searchFor {
+        font-size: 25px;
     }
 }

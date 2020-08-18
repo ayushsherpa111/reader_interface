@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Main.css";
 import { animated, useSpring } from "react-spring";
-import ZoomComponent from "../Zoom/ZoomComponent";
 
 export default function MainComponent({
     current,
@@ -9,12 +8,12 @@ export default function MainComponent({
     toggle,
     setToggle,
     len,
+    toggleMainWidth,
     setCurrent
 }) {
     console.log(current);
     console.log(toggle);
     console.log(len);
-    const [zoomed, setZoomed] = useState(false);
     const [style, set] = useSpring(() => ({
         transform: "translate(0,-100px)",
         opacity: 0
@@ -27,6 +26,7 @@ export default function MainComponent({
     return (
         <div
             className="mainBody"
+            style={toggleMainWidth ? { width: "100%" } : {}}
             onClick={() => {
                 if (toggle) {
                     setToggle(false);
@@ -75,7 +75,6 @@ export default function MainComponent({
                 <img src="/assets/arrowChange.png" className="next" alt="" />
                 next
             </div>
-            <ZoomComponent zoomed={zoomed} setZoomed={setZoomed} />
         </div>
     );
 }

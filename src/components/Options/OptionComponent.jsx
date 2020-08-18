@@ -4,6 +4,7 @@ import "./Options.css";
 
 export default function OptionComponent(props) {
     const { title, message, updateMessage } = useInfo();
+    const [route, setRoute] = React.useState("");
     return (
         <>
             <div style={{ marginRight: "8px" }}>
@@ -16,6 +17,9 @@ export default function OptionComponent(props) {
                                 title: e.title,
                                 message: e.message
                             }));
+                        }}
+                        onMouseOver={() => {
+                            setRoute(e.route);
                         }}
                     >
                         <div className="imageIco">
@@ -35,7 +39,8 @@ export default function OptionComponent(props) {
                             src="assets/arrow.png"
                             alt=""
                             onClick={() => {
-                                props.updateRoute("/chapters");
+                                console.log(route);
+                                props.updateRoute(route);
                             }}
                         />
                     </div>

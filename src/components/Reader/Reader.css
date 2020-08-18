@@ -2,3 +2,20 @@
     box-shadow: inset 190px 34px 700px black;
     display: flex;
 }
+
+.floatingOptions {
+    display: flex;
+    flex-direction: column;
+    margin-right: 3.6%;
+    position: absolute;
+    right: 12px;
+    height: 100%;
+    width: 0;
+    z-index: 200;
+}
+
+@media screen and (max-width: 1400px) {
+    .floatingOptions {
+        margin-right: 4.6%;
+    }
+}

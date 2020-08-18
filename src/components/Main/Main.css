@@ -1,11 +1,13 @@
 .mainBody {
-    padding: 2%;
+    /* padding: 2%; */
     display: flex;
     margin: auto;
+    justify-content: center;
 }
 
 .mangaImage {
     width: 100%;
+    padding: 1%;
     text-align: center;
 }
 
@@ -17,17 +19,17 @@
 .btn {
     text-transform: uppercase;
     letter-spacing: 5px;
-    width: 60px;
+    width: 160px;
     display: flex;
     flex-direction: column;
-    height: 50px;
     padding: 5px;
     align-items: center;
-    margin-top: 50%;
     cursor: pointer;
     font-size: 20px;
     font-weight: 700;
     transition: all 120ms ease;
+    z-index: 100;
+    justify-content: center;
 }
 
 .btn img {
@@ -35,6 +37,10 @@
     width: 35px;
     margin-bottom: 6px;
     transition: all 120ms ease;
+}
+
+.btn:hover {
+    background-color: #80808026;
 }
 
 .prev {
@@ -51,4 +57,17 @@
 
 .btn:hover .next {
     transform: rotateZ(-90deg) translate(0, 70%);
+}
+
+@media screen and (max-width: 1400px) {
+    .btn {
+        font-size: 15px;
+    }
+    .btn img {
+        width: 25px;
+    }
+
+    .mangaImage img {
+        width: 75%;
+    }
 }
